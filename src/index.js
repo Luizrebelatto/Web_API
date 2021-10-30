@@ -6,6 +6,8 @@ const handler = (request, response) => {
     const [ firt, route, id ] = url.split('/')
     request.queryString = { id: isNaN(id) ? id : Number(id) }
     
+    const key = `/${route}:${method.toLowerCase()}`
+    
     response.end()
 }
 

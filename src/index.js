@@ -2,6 +2,18 @@ const http = require('http')
 const PORT = 3000
 const DEFAULT_HEADER = { 'Content-Type': 'application/json'}
 
+const routes = {
+    '/heroes:get': async (request, response) => {
+        const { id } = request.queryString
+        console.log({id})
+        return response.end()
+    },
+    default: (request, response) => {
+        response.write('Route not exist!')
+        response.end()
+    }
+}
+
 const handler = (request, response) => {
     const { url, method } = request
     const [ first, route, id ] = url.split('/')
@@ -11,7 +23,8 @@ const handler = (request, response) => {
 
     response.writeHead(200, DEFAULT_HEADER)
     
-    response.end()
+    const chousen = routes[key] || routes.default
+    return chousen(request, response)
 }
 
 http.createServer(handler)

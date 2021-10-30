@@ -7,7 +7,7 @@ class HeroService {
         return this.heroRepository.find(itemId);
     }
 
-    async find(data) {
+    async create(data) {
         return this.heroRepository.create(data);
     }
 }

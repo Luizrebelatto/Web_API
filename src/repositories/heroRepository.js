@@ -1,4 +1,5 @@
-const { readFile, writeFile } = require('fs/promisses')
+const { write } = require('fs');
+const { readFile, writeFile } = require('fs/promises')
 
 class HeroRepository {
     constructor({ file }) {
@@ -15,6 +16,21 @@ class HeroRepository {
 
         return all.find(({ id }) => itemId === id );
     }
+
+    async create(data){
+        const currentFile = await this._currentFileContent();
+        currentFile.push(data);
+
+        await writeFile(this.file, JSON.stringify(currentFile));
+
+        return data.id;
+    }
 }
 
 module.exports = HeroRepository
+
+const heroRepository = new HeroRepository({
+    file: './../../database/data.json'
+})
+// heroRepository.create({id:2,name:"Homem Aranha"}).then(console.log).catch(error => console.log('error', error))
+// heroRepository.find().then(console.log).catch(error => console.log('error', error))

@@ -20,6 +20,11 @@ Uma web API desenvolvida com a linguagem javascript e sem nenhum framework
 ## 📚 Bibliotecas
 - nodemon ->  atualizar as mudanças sem precisar encerrar o servidor
 
+## 📚 Requisitos para executar o projeto
+- node instalado
+- terminal que aceite linux/unix
+- instalar Jq `https://stedolan.github.io/jq/download/`
+
 ## 🚀 Como executar
 
 1) Clonar o projeto do github:

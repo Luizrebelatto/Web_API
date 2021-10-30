@@ -1,7 +1,7 @@
-class HeroRepositories {
+class HeroRepository {
     constructor({ file }) {
         this.file = file;
     }
 }
 
-module.exports = HeroRepositories
+module.exports = HeroRepository

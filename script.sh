@@ -18,5 +18,5 @@ echo $CREATE
 
 ID=$(echo $CREATE | jq.id)
 
-echo '\n\n requesting chapolin'
+echo '\n\n requesting SpiderMan'
 curl localhost:3000/heroes/$ID
